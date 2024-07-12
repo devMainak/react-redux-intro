@@ -1,18 +1,18 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { addIncome, addExpenses } from './actions'
 
 const IncomeExpenseForm = () => {
   const dispatch = useDispatch()
   const [amount, setAmount] = useState(0)
 
   const handleAddIncome = () => {
-    dispatch({type: "ADD_INCOME", payload: parseFloat(amount)})
+    dispatch(addIncome(parseFloat(amount)))
     setAmount(0)
   }
 
   const handleAddExpense = () => {
-     dispatch({type: "ADD_EXPENSES", payload: parseFloat(amount)})
-    console.log(typeof parseFloat(amount))
+    dispatch(addExpenses(parseFloat(amount)))
     setAmount(0)
   }
   
